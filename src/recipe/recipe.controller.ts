@@ -10,7 +10,7 @@ import {
 import { Recipe } from './model/recipe.entity';
 import { RecipeService } from './recipe.service';
 
-@Controller('recipe')
+@Controller('recipes')
 export class RecipeController {
   constructor(private RecipeServiceRepo: RecipeService) {}
 

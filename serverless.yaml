@@ -1,0 +1,30 @@
+org: shwepyihein
+app: serverless-nestjs-crud
+service: serverless-nestjs-crud
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: dev
+  region: us-east-1
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+functions:
+  api:
+    handler: dist/lambda.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+
+custom:
+  optimize:
+    external: ['swagger-ui-dist']

@@ -5,7 +5,7 @@ import { Document } from 'mongoose';
 export type RecipeDocument = Recipe & Document;
 
 @Schema()
-@ApiTags('recipe')
+@ApiTags('recipes')
 export class Recipe {
   @Prop()
   @ApiProperty()
