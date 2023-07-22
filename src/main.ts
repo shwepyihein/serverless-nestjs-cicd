@@ -4,12 +4,12 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.setGlobalPrefix('api/v1');
   const options = new DocumentBuilder()
-    .setTitle('Nest example')
-    .setDescription('Some api examples')
+    .setTitle('Nest Serverless CRUD')
+    .setDescription('Recipe api version')
     .setVersion('1.0')
-    .addTag('examples')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, options);

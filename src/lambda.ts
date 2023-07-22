@@ -22,12 +22,13 @@ const bootstrapServer = async (): Promise<Server> => {
 
   app.use(eventContext());
   app.enableCors();
+  app.setGlobalPrefix('api/v1');
 
   const options = new DocumentBuilder()
     .setTitle('Nest example')
     .setDescription('Some api examples')
     .setVersion('1.0')
-    .addTag('examples')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
