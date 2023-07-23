@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
 import { LoginDto, SignUpDto } from './model/user.dto';
 import { UserService } from './user.service';
 import { Observable } from 'rxjs';
@@ -15,7 +15,10 @@ export class UserController {
       const result = await this.userService.signUp(signUpDto);
       return { success: true, data: result };
     } catch (error) {
-      return { success: false, message: error.message };
+      throw new BadRequestException({
+        success: false,
+        message: error.message,
+      });
     }
   }
 
@@ -25,7 +28,7 @@ export class UserController {
       const result = await this.userService.login(loginDto);
       return { success: true, data: result };
     } catch (error) {
-      return { success: false, message: error.message };
+      throw new BadRequestException({ success: false, message: error.message });
     }
   }
 }
