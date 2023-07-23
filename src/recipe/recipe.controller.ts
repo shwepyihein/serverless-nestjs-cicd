@@ -14,7 +14,7 @@ import { Recipe } from './model/recipe.schema';
 import { RecipeService } from './recipe.service';
 import { ApiBearerAuth, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from '../shared/guard/jwt-auth.guard';
-import { UpdateRecipeDto } from './model/recipe.dto';
+import { UpdateRecipeDto, createRecipeDto } from './model/recipe.dto';
 
 @Controller('recipes')
 @ApiTags('recipes')
@@ -46,7 +46,7 @@ export class RecipeController {
   }
 
   @Post()
-  async create(@Body() data: Recipe) {
+  async create(@Body() data: createRecipeDto) {
     try {
       const result = await this.recipeServiceRepo.create(data);
       return { success: true, data: result };

@@ -16,7 +16,7 @@ export class createRecipeDto {
 
   @ApiProperty()
   @IsNotEmpty()
-  ingredients: any;
+  ingredients: string[];
 }
 
 export class UpdateRecipeDto {
