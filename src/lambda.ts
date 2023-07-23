@@ -29,6 +29,7 @@ const bootstrapServer = async (): Promise<Server> => {
     .setDescription('Some api examples')
     .setVersion('1.0')
     .addBearerAuth()
+    .setBasePath('/dev')
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
