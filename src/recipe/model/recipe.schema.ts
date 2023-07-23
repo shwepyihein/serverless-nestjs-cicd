@@ -1,8 +1,6 @@
 import { Schema, SchemaFactory, Prop } from '@nestjs/mongoose';
-import { ApiProperty, ApiTags } from '@nestjs/swagger';
 import mongoose, { Document } from 'mongoose';
 import { User } from '../../user/model/user.schema';
-import { v4 as uuidv4 } from 'uuid';
 
 export type RecipeDocument = Recipe & Document;
 

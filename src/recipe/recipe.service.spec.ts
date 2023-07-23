@@ -1,12 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { RecipeService } from './recipe.service';
-import { Recipe, RecipeDocument, RecipeSchema } from './model/recipe.schema';
+import { Recipe, RecipeDocument } from './model/recipe.schema';
 import { Model } from 'mongoose';
 import { getModelToken } from '@nestjs/mongoose';
-import { AuthService } from '../shared/auth/auth.service';
 import { SharedModule } from '../shared/shared.module';
 import { JwtModule } from '@nestjs/jwt';
-import { UserModule } from '../user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { rootMongooseTestModule } from '../../test/MoogooseTestModuel';
 import { RecipeModule } from './recipe.module';

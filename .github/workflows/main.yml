@@ -22,7 +22,7 @@ jobs:
 
       # Add the following step to run Jest tests
       - name: Run Jest tests
-        run: yarn test
+        run: yarn test -- --forceExit
 
   deploy:
     name: deploy

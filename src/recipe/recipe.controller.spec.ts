@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { RecipeController } from './recipe.controller';
 import { RecipeService } from './recipe.service';
-import { Recipe } from './model/recipe.schema';
 import { UpdateRecipeDto } from './model/recipe.dto';
 import { BadRequestException } from '@nestjs/common';
 
@@ -142,7 +141,9 @@ describe('RecipeController', () => {
     it('should call RecipeService.create with correct data and return the result', async () => {
       const expectedResult = { id: '12345', ...recipeData };
 
-      jest.spyOn(recipeService, 'create').mockResolvedValue(expectedResult);
+      jest
+        .spyOn(recipeService, 'create')
+        .mockResolvedValue(expectedResult as any);
       // Call the create method
       const result = await recipeController.create(recipeData);
 

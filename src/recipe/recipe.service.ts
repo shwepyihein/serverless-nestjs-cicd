@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Recipe, RecipeDocument } from './model/recipe.schema';
+import { Recipe } from './model/recipe.schema';
 import { UpdateRecipeDto, createRecipeDto } from './model/recipe.dto';
 
 @Injectable()
@@ -31,16 +31,16 @@ export class RecipeService {
     return this.recipeModel.findById(id).exec();
   }
 
-  async create(recipe: createRecipeDto): Promise<Recipe> {
+  async create(recipe: createRecipeDto) {
     const newRecipe = new this.recipeModel(recipe);
     return newRecipe.save();
   }
 
-  async update(id: string, recipe: UpdateRecipeDto): Promise<Recipe> {
+  async update(id: string, recipe: UpdateRecipeDto) {
     return this.recipeModel.findByIdAndUpdate(id, recipe, { new: true }).exec();
   }
 
-  async delete(id: string): Promise<Recipe> {
+  async delete(id: string) {
     return this.recipeModel.findByIdAndDelete(id).exec();
   }
 }

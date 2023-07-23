@@ -1,6 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
-import { User } from 'src/user/model/user.schema';
 
 export class createRecipeDto {
   @ApiProperty()
