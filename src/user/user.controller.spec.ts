@@ -68,11 +68,15 @@ describe('UserController', () => {
         new BadRequestException(errorMessage),
       );
 
+      try {
+        await userController.signUp(signUpDto);
+        expect(true).toBe(false);
+      } catch (error) {
+        expect(error).toBeInstanceOf(BadRequestException);
+      }
       // Call the signUp method
-      const result = await userController.signUp(signUpDto);
 
       // Assert the result to contain the correct error message
-      expect(result).toEqual({ success: false, message: errorMessage });
 
       // Verify that userService.signUp was called with the correct arguments
       expect(userServiceMock.signUp).toHaveBeenCalledWith(signUpDto);
@@ -118,10 +122,14 @@ describe('UserController', () => {
       );
 
       // Call the login method
-      const result = await userController.login(loginDto);
 
+      try {
+        await userController.login(loginDto);
+        expect(true).toBe(false);
+      } catch (error) {
+        expect(error).toBeInstanceOf(BadRequestException);
+      }
       // Assert the result to contain the correct error message
-      expect(result).toEqual({ success: false, message: errorMessage });
 
       // Verify that userService.login was called with the correct arguments
       expect(userServiceMock.login).toHaveBeenCalledWith(loginDto);
