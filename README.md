@@ -26,7 +26,7 @@ To install the project, you'll need to have Node.js and Yarn installed on your m
 1. Clone the repository:
 
    ```
-   git clonehttps://github.com/shwepyihein/serverless-nestjs-cicd.git
+   git clone https://github.com/shwepyihein/serverless-nestjs-cicd.git
    ```
 
 2. Install the dependencies:
