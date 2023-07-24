@@ -18,7 +18,8 @@ export class RecipeService {
     ]);
 
     const mappedData = data.map((item) => ({
-      id: item.id,
+      id: item._id,
+      recipeId: item.id,
       title: item.title,
       description: item.description,
       category: item.category,
