@@ -36,6 +36,7 @@ describe('RecipeController', () => {
         data: [
           {
             id: '1',
+
             title: 'Recipe 1',
             description: 'Description 1',
             category: 'Category 1',
@@ -46,7 +47,9 @@ describe('RecipeController', () => {
         total: 2, // Total number of recipes
       };
 
-      jest.spyOn(recipeService, 'findAll').mockResolvedValue(expectedResult);
+      jest
+        .spyOn(recipeService, 'findAll')
+        .mockResolvedValue(expectedResult as any);
 
       // Call the findAll method of the controller
       const page = 1;
