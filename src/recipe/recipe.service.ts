@@ -19,7 +19,7 @@ export class RecipeService {
 
     const mappedData = data.map((item) => ({
       id: item.id,
-      moogo_Id: item._id,
+      mongo_id: item._id,
       title: item.title,
       description: item.description,
       category: item.category,
