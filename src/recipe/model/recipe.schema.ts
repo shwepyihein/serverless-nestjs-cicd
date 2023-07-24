@@ -6,16 +6,16 @@ export type RecipeDocument = Recipe & Document;
 
 @Schema()
 export class Recipe {
-  @Prop({ required: true })
+  @Prop({ required: true, unique: false })
   title: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: false })
   description: string;
 
-  @Prop({ default: false, required: true })
+  @Prop({ required: true, unique: false })
   category: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: false })
   ingredients: string[];
 
   @Prop({ type: mongoose.Schema.ObjectId, ref: 'User' })
