@@ -15,7 +15,8 @@
 - [Recipe UI](#search-ui)
 
   - [Installation](#installation)
-  - [Runningtheapp](#Running the app)
+  - [Runningtheapp](#Runningtheapp)
+  - [Test](#Test)
   - [Usage](#usage)
 
 ## Installation
@@ -31,13 +32,13 @@ To install the project, you'll need to have Node.js and Yarn installed on your m
 2. Install the dependencies:
 
    ```
+    cd serverless-nestjs-cicd
     yarn install
    ```
 
 3. setup the envrionment:
 
    ```
-   cd recipe-frontend
    touch .env
    ```
 
