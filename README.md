@@ -8,13 +8,44 @@
 
 ## Description
 
-[Nest](https://nextjs-recipe-repo.vercel.app/) Recipe Repo For Api
+[Recipe Repo](https://nextjs-recipe-repo.vercel.app/) For Api
+
+## Table of Contents
+
+- [Recipe UI](#search-ui)
+
+  - [Installation](#installation)
+  - [Runningtheapp](#Running the app)
+  - [Usage](#usage)
 
 ## Installation
 
-```bash
-$ yarn install
-```
+To install the project, you'll need to have Node.js and Yarn installed on your machine. Once you have those installed, follow these steps:
+
+1. Clone the repository:
+
+   ```
+   git clonehttps://github.com/shwepyihein/serverless-nestjs-cicd.git
+   ```
+
+2. Install the dependencies:
+
+   ```
+    yarn install
+   ```
+
+3. setup the envrionment:
+
+   ```
+   cd recipe-frontend
+   touch .env
+   ```
+
+   ```
+   JWT_SECRET=
+   JWT_EXPIRE=
+   MONGO_URI=
+   ```
 
 ## Running the app
 
