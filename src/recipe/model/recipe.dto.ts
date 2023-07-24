@@ -21,14 +21,18 @@ export class createRecipeDto {
 
 export class UpdateRecipeDto {
   @ApiProperty()
+  @IsNotEmpty()
   title: string;
 
   @ApiProperty()
+  @IsNotEmpty()
   description: string;
 
   @ApiProperty()
+  @IsNotEmpty()
   category: string;
 
   @ApiProperty()
+  @IsNotEmpty()
   ingredients: string[];
 }
