@@ -40,13 +40,6 @@ const bootstrapServer = async (): Promise<Server> => {
 };
 
 export const handler: APIGatewayProxyHandler = async (event, context) => {
-  if (event.path === '/api') {
-    event.path = '/api/';
-  }
-
-  event.path = event.path.includes('swagger-ui')
-    ? `/api${event.path}`
-    : event.path;
   if (!cachedServer) {
     const server = await bootstrapServer();
     cachedServer = server;
