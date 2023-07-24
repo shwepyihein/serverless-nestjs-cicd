@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Recipe } from './model/recipe.schema';
 import { UpdateRecipeDto, createRecipeDto } from './model/recipe.dto';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class RecipeService {
@@ -32,10 +33,21 @@ export class RecipeService {
   }
 
   async create(recipe: createRecipeDto) {
-    const newRecipe = new this.recipeModel(recipe);
+    const { title, ...otherFields } = recipe;
+
+    // Check if the title already exists in the database
+    const existingRecipe = await this.recipeModel.findOne({ title });
+
+    if (existingRecipe) {
+      throw new Error('Recipe with the same title already exists.');
+    }
+
+    // Generate a unique "id" for the new recipe
+    const id = uuidv4();
+
+    const newRecipe = new this.recipeModel({ ...otherFields, title, id });
     return newRecipe.save();
   }
-
   async update(id: string, recipe: UpdateRecipeDto) {
     return this.recipeModel.findByIdAndUpdate(id, recipe, { new: true }).exec();
   }

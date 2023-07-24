@@ -6,7 +6,10 @@ export type RecipeDocument = Recipe & Document;
 
 @Schema()
 export class Recipe {
-  @Prop({ required: true, unique: false })
+  @Prop({ required: true, unique: true })
+  id: string;
+
+  @Prop({ required: true, unique: true })
   title: string;
 
   @Prop({ required: true, unique: false })
